@@ -12,10 +12,7 @@
                 <a class="nav-link" href="ManageArticles.php">Manage Articles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ManageSubjects.php">Manage Subjects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../">Back</a>
+                <a class="nav-link" href="managemapel/index.php">Manage Mapel</a>
             </li>
         </ul>
     </div>

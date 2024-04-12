@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Admin;
 DROP TABLE IF EXISTS Author;
+DROP TABLE IF EXISTS subjects;
 
 -- Tabel Admin
 CREATE TABLE Admin (
@@ -23,3 +24,11 @@ CREATE TABLE Author (
 
 -- Insert Data Author
 INSERT INTO Author (name, username, password) VALUES ('Gilang', 'gilang', 'password');
+
+
+CREATE TABLE subjects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO subjects (name) VALUES ('Matematika');
