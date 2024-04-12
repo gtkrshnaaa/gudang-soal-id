@@ -36,4 +36,17 @@ CREATE TABLE subjects (
 INSERT INTO subjects (name) VALUES ('Matematika');
 
 -- Membuat tabel articles
-
+CREATE TABLE articles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(1000) NOT NULL,
+    content TEXT NOT NULL,
+    subject_id INT NOT NULL,
+    view_count INT DEFAULT 0,
+    posting_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    admin_id INT,
+    author_id INT,
+    author_type ENUM('admin', 'author') NOT NULL DEFAULT 'admin',
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (admin_id) REFERENCES Admin(id),
+    FOREIGN KEY (author_id) REFERENCES Author(id)
+);
