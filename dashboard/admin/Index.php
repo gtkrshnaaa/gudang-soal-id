@@ -20,6 +20,7 @@ $admin = $_SESSION['admin'];
 </head>
 
 <body>
+    <?php include '../../layout/AdminNavbar.php'; ?>
     <div class="container mt-5">
         <h2>Welcome, <?php echo $admin['username']; ?>!</h2>
         <p>This is the admin dashboard.</p>
