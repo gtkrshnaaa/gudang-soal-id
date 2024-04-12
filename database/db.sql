@@ -1,20 +1,21 @@
-DROP TABLE IF EXISTS Admin;
-DROP TABLE IF EXISTS Author;
+-- Menghapus tabel yang ada jika sudah ada
+DROP TABLE IF EXISTS articles;
 DROP TABLE IF EXISTS subjects;
+DROP TABLE IF EXISTS Author;
+DROP TABLE IF EXISTS Admin;
 
--- Tabel Admin
+-- Membuat tabel Admin
 CREATE TABLE Admin (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL
 );
 
--- Insert Data Admin
-INSERT INTO Admin (username, password) VALUES ('admin', 'adminpw');
+-- Memasukkan data ke dalam tabel Admin
+INSERT INTO Admin (name, username, password) VALUES ('Gilang Admin', 'admin', 'adminpw');
 
-
-
--- Tabel Author
+-- Membuat tabel Author
 CREATE TABLE Author (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -22,13 +23,17 @@ CREATE TABLE Author (
     password VARCHAR(50) NOT NULL
 );
 
--- Insert Data Author
+-- Memasukkan data ke dalam tabel Author
 INSERT INTO Author (name, username, password) VALUES ('Gilang', 'gilang', 'password');
 
-
+-- Membuat tabel subjects
 CREATE TABLE subjects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
+-- Memasukkan data ke dalam tabel subjects
 INSERT INTO subjects (name) VALUES ('Matematika');
+
+-- Membuat tabel articles
+

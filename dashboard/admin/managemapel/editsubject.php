@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <?php include '../../../layout/adminnavbar.php'; ?>
     <div class="container mt-5">
         <h2>Edit Subject</h2>
         <form action="" method="post">

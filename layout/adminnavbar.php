@@ -9,7 +9,7 @@
                 <a class="nav-link" href="manageauthors/index.php">Manage Authors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ManageArticles.php">Manage Articles</a>
+                <a class="nav-link" href="managearticles/index.php">Manage Articles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="managemapel/index.php">Manage Mapel</a>
