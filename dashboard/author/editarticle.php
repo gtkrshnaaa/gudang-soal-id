@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Periksa apakah admin sudah login
-if (!isset($_SESSION['admin'])) {
-    header("Location: ../../../login/admin/adminlogin.php");
+// Periksa apakah author sudah login
+if (!isset($_SESSION['author'])) {
+    header("Location: ../../login/author/authorlogin.php");
     exit();
 }
 
-require_once '../../../includes/dbconnect.php';
+require_once '../../includes/dbconnect.php';
 
 $article = null;
 
@@ -65,6 +65,7 @@ if (isset($_GET['id'])) {
     <title>Edit Article</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+
     <style>
         #editor {
             height: 600px;
@@ -72,7 +73,7 @@ if (isset($_GET['id'])) {
     </style>
 </head>
 <body>
-    <?php include '../../../layout/adminnavbar.php'; ?>
+    <?php include '../../layout/authornavbar.php'; ?>
     <div class="container mt-5">
         <h2>Edit Article</h2>
         <form action="" method="post">
@@ -124,3 +125,4 @@ if (isset($_GET['id'])) {
 </script>
 </body>
 </html>
+
