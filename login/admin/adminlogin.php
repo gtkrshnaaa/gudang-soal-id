@@ -7,7 +7,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="mb-4">Admin Login</h2>
-        <form action="AdminAuthenticate.php" method="post">
+        <form action="adminauthenticate.php" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" class="form-control" id="username" name="username">

@@ -6,13 +6,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="ManageAuthors/index.php">Manage Authors</a>
+                <a class="nav-link" href="manageauthors/index.php">Manage Authors</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="ManageArticles.php">Manage Articles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="ManageSubjects.php">Manage Subjects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../">Back</a>
             </li>
         </ul>
     </div>

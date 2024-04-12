@@ -8,6 +8,7 @@ session_unset();
 session_destroy();
 
 // Redirect ke halaman login admin
-header("Location: AdminLogin.php");
+header("Location: adminlogin.php");
 exit();
 ?>
+

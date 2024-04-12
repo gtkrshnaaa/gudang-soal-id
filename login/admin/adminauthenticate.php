@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../../includes/DbConnect.php';
+require_once '../../includes/dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Admin berhasil login
         session_start();
         $_SESSION['admin'] = ['username' => $username]; // Simpan data admin dalam session
-        header("Location: ../../dashboard/admin/Index.php");
+        header("Location: ../../dashboard/admin/index.php");
         exit();
     } else {
         // Admin gagal login
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Jika bukan metode POST, redirect ke halaman login
-    header("Location: AdminLogin.php");
+    header("Location: adminlogin.php");
     exit();
 }
 ?>

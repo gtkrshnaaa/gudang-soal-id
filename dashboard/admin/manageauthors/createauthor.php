@@ -1,5 +1,13 @@
 <?php
-require_once '../../../includes/DbConnect.php';
+session_start();
+
+// Periksa apakah admin sudah login
+if (!isset($_SESSION['admin'])) {
+    header("Location: ../../../login/admin/adminlogin.php");
+    exit();
+}
+
+require_once '../../../includes/dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -48,12 +56,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">Show</button>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Add Author</button>
         </form>
     </div>
 
-    
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById('password');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
