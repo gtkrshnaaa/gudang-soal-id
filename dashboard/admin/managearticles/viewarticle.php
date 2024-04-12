@@ -47,6 +47,16 @@ if (isset($_GET['id'])) {
     if ($view_count) {
         $article['view_count'] = $view_count;
     }
+
+    // Ambil tanggal artikel
+    $stmt_date = $conn->prepare("SELECT posting_date FROM articles WHERE id = :id");
+    $stmt_date->bindParam(':id', $article_id, PDO::PARAM_INT);
+    $stmt_date->execute();
+    $posting_date = $stmt_date->fetchColumn();
+
+    if ($posting_date) {
+        $article['posting_date'] = $posting_date;
+    }
 } else {
     echo "Invalid request.";
     exit();
@@ -81,11 +91,9 @@ if (isset($_GET['id'])) {
         </div>
     </nav>
     <div class="container mt-5">
-        <h2>View Article</h2>
-        <p>Author: <?php echo $article['author_name']; ?></p>
-        <p>Subject: <?php echo $article['subject_name']; ?></p>
-        <p>Content: <?php echo $article['content']; ?></p>
-        <p>Views: <?php echo $article['view_count']; ?></p>
+        <h2>Soal Mata Pelajaran <?php echo $article['subject_name']; ?></h2>
+        <p><?php echo $article['view_count']; ?> Views &nbsp;&#183;&nbsp; By <?php echo $article['author_name']; ?> &nbsp;&#183;&nbsp; <?php echo $article['posting_date']; ?></p> 
+        <p><?php echo $article['content']; ?></p>
     </div>
 </body>
 </html>
