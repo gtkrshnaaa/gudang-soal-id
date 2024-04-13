@@ -44,10 +44,11 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         .form-control {
             background-color: #3131318e;
             border: none;
+            border-radius: 20px;
         }
 
         input[type="text"]::placeholder {
-            color: #bdc1c6;
+            color: #bdc1c66b;
         }
 
         input[type="text"]:focus {
