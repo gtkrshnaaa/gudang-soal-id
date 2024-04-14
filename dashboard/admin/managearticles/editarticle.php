@@ -77,7 +77,26 @@ if (isset($_GET['id'])) {
     </style>
 </head>
 <body>
-    <?php include '../../../layout/adminnavbar.php'; ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.php">Admin Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../manageauthors/index.php">Manage Authors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../managearticles/index.php">Manage Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../managemapel/index.php">Manage Mapel</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h2>Edit Article</h2>
         <form action="" method="post">
@@ -92,9 +111,10 @@ if (isset($_GET['id'])) {
                 <input type="text" class="form-control" id="slug" name="slug" value="<?php echo $article['slug']; ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="adlink">adlink ( http://localhost/app/gudang-soal-id/public/perantaraiklan.php?slug= ):</label>
+                <label for="adlink">adlink:</label>
                 <input type="text" class="form-control" id="adlink" name="adlink" value="<?php echo $article['adlink']; ?>">
             </div>
+            <p><strong>adlink</strong> adalah link yang di pendekan dari ( https://namadomain.com/public/perantaraiklan.php?slug= ||| http://localhost/app/gudang-soal-id/public/perantaraiklan.php?slug= )</p>
             <div class="form-group">
                 <label for="subject">Subject:</label>
                 <input type="text" class="form-control" name="subject" value="<?php echo $article['subject_name']; ?>">
