@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <h2>Edit Article</h2>
         <form action="" method="post">
             <input type="hidden" name="id" value="<?php echo $article['id']; ?>">

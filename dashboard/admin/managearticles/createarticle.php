@@ -53,14 +53,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Add New Article</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    
     <style>
-        #editor {
-            height: 600px; /* Atur ketinggian editor di sini */
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+
+        .form-control {
+            background-color: #3131318e;
+            color: #bdc1c6ba;
+            border: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #343434;
+            box-shadow: 0 0 5px #25252580;
+            background-color: #3131318e;
+            color: #bdc1c6ba;
         }
     </style>
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="../index.php">Admin Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,17 +102,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form id="articleForm" action="" method="post">
             
             <div class="form-group">
-                <label for="slug">Slug:</label>
-                <input type="text" class="form-control" id="slug" name="slug" readonly>
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control bg-dark" id="slug" name="slug" readonly>
             </div>
             <div class="form-group">
-                <label for="adlink">adlink:</label>
-                <input type="text" class="form-control" id="adlink" name="adlink">
+                <label for="adlink">adlink</label>
+                <input type="text" class="form-control bg-dark" id="adlink" name="adlink">
             </div>
             <p><strong>adlink</strong> adalah link yang di pendekan dari ( https://namadomain.com/public/perantaraiklan.php?slug= ||| http://localhost/app/gudang-soal-id/public/perantaraiklan.php?slug= )</p>
             <div class="form-group">
-                <label for="subject">Subject:</label>
-                <select class="form-control" id="subject" name="subject" required>
+                <label for="subject">Subject</label>
+                <select class="form-control bg-dark" id="subject" name="subject" required>
                     <?php foreach ($subjects as $subject) { ?>
                         <option value="<?php echo $subject['id']; ?>"><?php echo $subject['name']; ?></option>
                     <?php } ?>
@@ -103,8 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="content">Content:</label>
-                <div id="editor"></div>
+                <label for="content">Content</label>
+                <div id="editor" style="height: 600px; border: #bdc1c6ba 1px solid;"></div>
                 <textarea id="hiddenInput" name="content" style="display: none;"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Add Article</button>
