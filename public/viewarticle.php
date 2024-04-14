@@ -48,10 +48,18 @@ if (!empty($article['adlink'])) {
         // Tautan iklan yang sudah dipendekkan dari halaman perantara
         $iklanURL = $article['adlink'];
 
+        // Menyiapkan script JavaScript untuk menampilkan popup dan menunggu sebelum mengarahkan ke halaman iklan
+        echo "<script>
+            // Menampilkan popup dengan pesan Lewati iklan sebelum membaca
+            alert('Lewati iklan sebelum membaca, klik OK untuk lanjutkan.');
+            </script>";
+
         // Redirect pengguna ke tautan iklan
-        header("Location: $iklanURL");
+        header("Refresh: 0.1; URL=$iklanURL");
         exit();
     }
+
+    
 
     // Bersihkan session yang menandakan pengguna diredirect dari halaman perantara
     unset($_SESSION[$session_id]);

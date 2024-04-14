@@ -13,7 +13,7 @@ $_SESSION[$session_id]['slug_halaman_detail'] = $slug_halaman_detail;
 
 
 // Lakukan redirect setelah 3 detik dengan menyertakan session ID dan slug sebagai parameter
-header("Refresh: 3; URL=viewarticle.php?session_id=$session_id&slug=$slug_halaman_detail");
+header("Refresh: 5; URL=viewarticle.php?session_id=$session_id&slug=$slug_halaman_detail");
 ?>
 
 
@@ -25,6 +25,6 @@ header("Refresh: 3; URL=viewarticle.php?session_id=$session_id&slug=$slug_halama
     <title>Redirecting...</title>
 </head>
 <body>
-    <p>Redirecting to the article...</p>
+    <p>Terima kasih sudah melewati iklan, <strong>kamu akan diarahkan ke halaman soal dalam 5 detik</strong>  ...</p>
 </body>
 </html>
