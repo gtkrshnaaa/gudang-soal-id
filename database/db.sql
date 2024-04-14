@@ -40,6 +40,7 @@ CREATE TABLE articles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     slug VARCHAR(1000) NOT NULL,
     content TEXT NOT NULL,
+    adlink VARCHAR(1800) NULL,
     subject_id INT NOT NULL,
     view_count INT DEFAULT 0,
     posting_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

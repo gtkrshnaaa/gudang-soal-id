@@ -17,16 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $content = $_POST['content'];
         $subject_id = $_POST['subject'];
-        $slug = $_POST['slug']; // Tambahkan ini untuk mendapatkan nilai slug dari form
+        $slug = $_POST['slug'];
+        $adlink = $_POST['adlink']; // Mengambil nilai adlink dari form
 
         $admin_id = $_SESSION['admin'];
-        $author_type = 'admin'; // Menandai bahwa penulis adalah admin
+        $author_type = 'admin'; 
 
-        $stmt = $conn->prepare("INSERT INTO articles (slug, content, subject_id, admin_id, author_type) VALUES (:slug, :content, :subject_id, :admin_id, :author_type)");
+        $stmt = $conn->prepare("INSERT INTO articles (slug, content, adlink, subject_id, admin_id, author_type) VALUES (:slug, :content, :adlink, :subject_id, :admin_id, :author_type)");
         $stmt->bindParam(':slug', $slug);
         $stmt->bindParam(':content', $content);
+        $stmt->bindParam(':adlink', $adlink); // Mengikat nilai adlink ke dalam pernyataan SQL
         $stmt->bindParam(':subject_id', $subject_id);
-        $stmt->bindParam(':admin_id', $admin_id, PDO::PARAM_INT); // Menambahkan tipe parameter untuk admin_id
+        $stmt->bindParam(':admin_id', $admin_id, PDO::PARAM_INT);
         $stmt->bindParam(':author_type', $author_type);
 
         if ($stmt->execute()) {
@@ -40,51 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-?>
-
-<?php
-session_start();
-
-// Periksa apakah admin sudah login
-if (!isset($_SESSION['admin'])) {
-    header("Location: ../../../login/admin/adminlogin.php");
-    exit();
-}
-
-require_once '../../../includes/dbconnect.php';
-
-// Ambil daftar mata pelajaran dari database
-$stmt_subjects = $conn->query("SELECT * FROM subjects");
-$subjects = $stmt_subjects->fetchAll(PDO::FETCH_ASSOC);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        $content = $_POST['content'];
-        $subject_id = $_POST['subject'];
-        $slug = $_POST['slug']; // Tambahkan ini untuk mendapatkan nilai slug dari form
-
-        $admin_id = $_SESSION['admin'];
-        $author_type = 'admin'; // Menandai bahwa penulis adalah admin
-
-        $stmt = $conn->prepare("INSERT INTO articles (slug, content, subject_id, admin_id, author_type) VALUES (:slug, :content, :subject_id, :admin_id, :author_type)");
-        $stmt->bindParam(':slug', $slug);
-        $stmt->bindParam(':content', $content);
-        $stmt->bindParam(':subject_id', $subject_id);
-        $stmt->bindParam(':admin_id', $admin_id, PDO::PARAM_INT); // Menambahkan tipe parameter untuk admin_id
-        $stmt->bindParam(':author_type', $author_type);
-
-        if ($stmt->execute()) {
-            header("Location: index.php");
-            exit();
-        } else {
-            throw new Exception("Error adding article.");
-        }
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
-}
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -106,6 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="slug">Slug:</label>
                 <input type="text" class="form-control" id="slug" name="slug" readonly>
+            </div>
+            <div class="form-group">
+                <label for="adlink">adlink ( http://localhost/app/gudang-soal-id/public/perantaraiklan.php?slug= ):</label>
+                <input type="text" class="form-control" id="adlink" name="adlink">
             </div>
             <div class="form-group">
                 <label for="subject">Subject:</label>

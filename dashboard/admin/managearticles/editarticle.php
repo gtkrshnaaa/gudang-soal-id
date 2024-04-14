@@ -17,12 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $content = $_POST['content'];
     $subject = $_POST['subject'];
     $slug = $_POST['slug']; // Menambahkan binding untuk slug
+    $adlink = $_POST['adlink']; // Mengambil nilai adlink dari form
 
     // Update konten, subjek, dan slug artikel
-    $stmt_update = $conn->prepare("UPDATE articles SET content = :content, subject_id = (SELECT id FROM subjects WHERE name = :subject LIMIT 1), slug = :slug WHERE id = :id");
+    $stmt_update = $conn->prepare("UPDATE articles SET content = :content, subject_id = (SELECT id FROM subjects WHERE name = :subject LIMIT 1), slug = :slug, adlink = :adlink WHERE id = :id");
     $stmt_update->bindParam(':content', $content, PDO::PARAM_STR);
     $stmt_update->bindParam(':subject', $subject, PDO::PARAM_STR);
     $stmt_update->bindParam(':slug', $slug, PDO::PARAM_STR); // Menambahkan binding untuk slug
+    $stmt_update->bindParam(':adlink', $adlink, PDO::PARAM_STR); // Menambahkan binding untuk adlink
     $stmt_update->bindParam(':id', $article_id, PDO::PARAM_INT);
     
     if ($stmt_update->execute()) {
@@ -61,6 +63,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,6 +90,10 @@ if (isset($_GET['id'])) {
             <div class="form-group">
                 <label for="slug">Slug:</label>
                 <input type="text" class="form-control" id="slug" name="slug" value="<?php echo $article['slug']; ?>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="adlink">adlink ( http://localhost/app/gudang-soal-id/public/perantaraiklan.php?slug= ):</label>
+                <input type="text" class="form-control" id="adlink" name="adlink" value="<?php echo $article['adlink']; ?>">
             </div>
             <div class="form-group">
                 <label for="subject">Subject:</label>

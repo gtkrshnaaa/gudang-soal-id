@@ -32,28 +32,30 @@ $stmt->execute();
 $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-// logic iklan
-// Ambil session ID pengguna dari parameter URL
-$session_id = $_GET['session_id'];
+// LOGIC IKLAN
+// Cek jika adlink tidak kosong, lalu eksekusi logika iklan
+if (!empty($article['adlink'])) {
+    // logic iklan
+    // Ambil session ID pengguna dari parameter URL
+    $session_id = $_GET['session_id'];
 
-// Cek apakah session ID pengguna sama dengan session ID saat diredirect dari halaman perantara
-$redirected_from_perantara = isset($_SESSION[$session_id]) ? $_SESSION[$session_id] : null;
-$current_session_id = session_id();
+    // Cek apakah session ID pengguna sama dengan session ID saat diredirect dari halaman perantara
+    $redirected_from_perantara = isset($_SESSION[$session_id]) ? $_SESSION[$session_id] : null;
+    $current_session_id = session_id();
 
-// Jika session ID pengguna tidak sama dengan session ID saat diredirect dari halaman perantara, arahkan ke link iklan
-if ($redirected_from_perantara === null ) {
-    // Tautan iklan yang sudah dipendekkan dari halaman perantara
-    $iklanURL = "https://sfl.gl/LErGVgZB";
+    // Jika session ID pengguna tidak sama dengan session ID saat diredirect dari halaman perantara, arahkan ke link iklan
+    if ($redirected_from_perantara === null) {
+        // Tautan iklan yang sudah dipendekkan dari halaman perantara
+        $iklanURL = $article['adlink'];
 
-    // Redirect pengguna ke tautan iklan
-    header("Location: $iklanURL");
-    exit();
+        // Redirect pengguna ke tautan iklan
+        header("Location: $iklanURL");
+        exit();
+    }
+
+    // Bersihkan session yang menandakan pengguna diredirect dari halaman perantara
+    unset($_SESSION[$session_id]);
 }
-
-
-
-// Bersihkan session yang menandakan pengguna diredirect dari halaman perantara
-unset($_SESSION[$session_id]);
 
 ?>
 
