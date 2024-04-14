@@ -70,6 +70,32 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         a {
             color: #8ab4f8;
         }
+
+        @media only screen and (max-width: 800px) {
+            .respnsf {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .subject-title {
+                display: none;
+            }
+
+            .respnsf-subject {
+                max-width: 90vw;
+                display: flex;
+                flex-direction: row;
+                gap: 30px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+
+            .respnsf-subject li {
+                flex: 0 0 auto;
+            }
+
+        }
     </style>
 
 </head>
@@ -88,7 +114,7 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <div class="container mt-5">
-        <div class="row">
+        <div class="row respnsf">
             <div class="col-md-8">
                 <?php foreach ($articles as $article): ?>
                     <div class="card mb-4">
@@ -113,11 +139,12 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </div>
             <div class="col-md-4 mt-4">
-                <h5>Daftar Mata Pelajaran</h5>
-                <ul>
+                <h5 class="subject-title">Daftar Mata Pelajaran</h5>
+                <ul class="respnsf-subject">
                     <?php foreach ($subjects as $subject): ?>
-                        <li><a
-                                href="articlebysubject.php?subject_id=<?php echo $subject['id']; ?>"><?php echo $subject['name']; ?></a>
+                        <li>
+                            <a href="articlebysubject.php?subject_id=<?php echo $subject['id']; ?>"><?php echo $subject['name']; ?>
+                            </a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
