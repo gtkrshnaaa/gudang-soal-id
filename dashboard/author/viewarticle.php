@@ -65,12 +65,21 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>View Article</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+    </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.php">Author Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,8 +96,10 @@ if (isset($_GET['id'])) {
     </nav>
     <div class="container mt-5">
         <h2>Soal Mata Pelajaran <?php echo $article['subject_name']; ?></h2>
-        <p><?php echo $article['view_count']; ?> Views &nbsp;&#183;&nbsp; By <?php echo $article['author_name']; ?> &nbsp;&#183;&nbsp; <?php echo $article['posting_date']; ?></p> 
+        <p><?php echo $article['view_count']; ?> Views &nbsp;&#183;&nbsp; By <?php echo $article['author_name']; ?>
+            &nbsp;&#183;&nbsp; <?php echo $article['posting_date']; ?></p>
         <p><?php echo $article['content']; ?></p>
     </div>
 </body>
+
 </html>

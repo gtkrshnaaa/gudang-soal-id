@@ -37,6 +37,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Edit Subject</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+
+        .form-control {
+            background-color: #3131318e;
+            color: #bdc1c6ba;
+            border: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #343434;
+            box-shadow: 0 0 5px #25252580;
+            background-color: #3131318e;
+            color: #bdc1c6ba;
+        }
+    </style>
+
 </head>
 <body>
     <div class="container mt-5">
@@ -44,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="post">
             <input type="hidden" name="id" value="<?php echo $subject['id']; ?>">
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $subject['name']; ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Update Subject</button>

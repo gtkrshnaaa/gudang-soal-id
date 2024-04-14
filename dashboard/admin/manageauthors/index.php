@@ -16,10 +16,24 @@ require_once '../../../includes/dbconnect.php';
 <head>
     <title>Manage Authors</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+
+        .wide-table {
+            width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="../index.php">Admin Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +53,7 @@ require_once '../../../includes/dbconnect.php';
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
+    <div class="container col-md-11 mt-5 mb-5">
         <h2>Manage Authors</h2>
         <a href="createauthor.php" class="btn btn-primary mb-3">Add New Author</a>
         <table class="table">

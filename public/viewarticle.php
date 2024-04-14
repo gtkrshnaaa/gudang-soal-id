@@ -59,7 +59,7 @@ if (!empty($article['adlink'])) {
         exit();
     }
 
-    
+
 
     // Bersihkan session yang menandakan pengguna diredirect dari halaman perantara
     unset($_SESSION[$session_id]);
@@ -73,8 +73,10 @@ if (!empty($article['adlink'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo implode(' ', array_slice(explode(' ', strip_tags($article['content'])), 0, 5)) . '...'; ?> Gudang Soal ID</title>
-    <meta name="description" content="<?php echo implode(' ', array_slice(explode(' ', strip_tags($article['content'])), 0, 100)) . '...'; ?>">
+    <title><?php echo implode(' ', array_slice(explode(' ', strip_tags($article['content'])), 0, 5)) . '...'; ?> Gudang
+        Soal ID</title>
+    <meta name="description"
+        content="<?php echo implode(' ', array_slice(explode(' ', strip_tags($article['content'])), 0, 100)) . '...'; ?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
@@ -82,7 +84,7 @@ if (!empty($article['adlink'])) {
         body,
         .container {
             background-color: #202124;
-            color: #bdc1c6;
+            color: #bdc1c6ba;
             border: none;
         }
 
@@ -113,7 +115,8 @@ if (!empty($article['adlink'])) {
                         <h3>Mata Pelajaran <?php echo $article['subject_name']; ?></h3>
                         <p><?php echo $article['view_count']; ?> Views &nbsp;&#183;&nbsp; By
                             <?php echo $article['author_name']; ?> &nbsp;&#183;&nbsp;
-                            <?php echo $article['posting_date']; ?></p>
+                            <?php echo $article['posting_date']; ?>
+                        </p>
                         <p><?php echo $article['content']; ?></p>
                     </div>
                 </div>

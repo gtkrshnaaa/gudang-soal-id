@@ -30,6 +30,12 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
     <title>Manage Articles</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+
         .wide-table {
             width: 100%;
             overflow-x: auto;
@@ -38,7 +44,7 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="../index.php">Admin Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +64,7 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
             </ul>
         </div>
     </nav>
-    <div class="container col-md-11 mt-5">
+    <div class="container col-md-11 mt-5 mb-5">
         <h2>Manage Articles</h2>
         <a href="createarticle.php" class="btn btn-primary mb-3">Add Article</a>
         <div class="table-responsive">

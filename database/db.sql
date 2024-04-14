@@ -13,7 +13,7 @@ CREATE TABLE Admin (
 );
 
 -- Memasukkan data ke dalam tabel Admin
-INSERT INTO Admin (name, username, password) VALUES ('Gilang Admin', 'admin', 'adminpw');
+INSERT INTO Admin (name, username, password) VALUES ('Admin', 'admin', 'adminpw');
 
 -- Membuat tabel Author
 CREATE TABLE Author (
@@ -34,6 +34,11 @@ CREATE TABLE subjects (
 
 -- Memasukkan data ke dalam tabel subjects
 INSERT INTO subjects (name) VALUES ('Matematika');
+INSERT INTO subjects (name) VALUES ('Bahasa Indonesia');
+INSERT INTO subjects (name) VALUES ('Ilmu Pengetahuan Alam');
+INSERT INTO subjects (name) VALUES ('Ilmu Pengetahuan Sosial');
+INSERT INTO subjects (name) VALUES ('Pendidikan Kewarganegaraan');
+INSERT INTO subjects (name) VALUES ('Bahasa Inggris');
 
 -- Membuat tabel articles
 CREATE TABLE articles (

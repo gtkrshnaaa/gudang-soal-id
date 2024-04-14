@@ -37,7 +37,7 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         body,
         .container {
             background-color: #202124;
-            color: #bdc1c6;
+            color: #bdc1c6ba;
             border: none;
         }
 
@@ -48,14 +48,14 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         input[type="text"]::placeholder {
-            color: #bdc1c66b;
+            color: #bdc1c6ba6b;
         }
 
         input[type="text"]:focus {
             border-color: #343434;
             box-shadow: 0 0 5px #25252580;
             background-color: #3131318e;
-            color: #bdc1c6;
+            color: #bdc1c6ba;
         }
 
         .card {

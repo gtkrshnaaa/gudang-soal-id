@@ -33,6 +33,12 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
     <title>Manage Articles</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        *,
+        body {
+            background-color: #202124;
+            color: #bdc1c6ba;
+        }
+
         .wide-table {
             width: 100%;
             overflow-x: auto;
@@ -41,7 +47,7 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.php">Author Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +91,8 @@ $articles = $stmt_articles->fetchAll(PDO::FETCH_ASSOC);
                             <td>
                                 <a href="viewarticle.php?id=<?php echo $article['id']; ?>" class="btn btn-info">View</a>
                                 <a href="editarticle.php?id=<?php echo $article['id']; ?>" class="btn btn-warning">Edit</a>
-                                <a href="deletearticle.php?id=<?php echo $article['id']; ?>" class="btn btn-danger">Delete</a>
+                                <a href="deletearticle.php?id=<?php echo $article['id']; ?>"
+                                    class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
