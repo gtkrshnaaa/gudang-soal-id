@@ -42,7 +42,7 @@ CREATE TABLE articles (
     content TEXT NOT NULL,
     adlink VARCHAR(1800) NULL,
     subject_id INT NOT NULL,
-    view_count INT DEFAULT 0,
+    view_count INT DEFAULT 10240,
     posting_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     admin_id INT,
     author_id INT,
