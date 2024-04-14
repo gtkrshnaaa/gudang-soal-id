@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/dbconnect.php';
+require_once 'includes/dbconnect.php';
 
 // Ambil semua artikel, nama penulis, subjek, tanggal dibuat, dan jumlah tampilan
 $stmt = $conn->prepare("SELECT articles.*, 
@@ -122,7 +122,7 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <?php echo $article['author_name']; ?> &nbsp;&#183;&nbsp;
                                 <?php echo $article['subject_name']; ?>
                             </p>
-                            <a href="viewarticle.php?slug=<?php echo $article['slug']; ?>" style="font-size: 25px;">
+                            <a href="public/viewarticle.php?slug=<?php echo $article['slug']; ?>" style="font-size: 25px;">
                                 <?php echo implode(' ', array_slice(explode(' ', strip_tags($article['content'])), 0, 5)) . '...'; ?>
                             </a>
                             <p class="card-text">
@@ -137,7 +137,7 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h5 class="subject-title">Daftar Mata Pelajaran</h5>
                 <ul class="respnsf-subject">
                     <?php foreach ($subjects as $subject): ?>
-                        <li><a href="articlebysubject.php?subject_id=<?php echo $subject['id']; ?>">
+                        <li><a href="public/articlebysubject.php?subject_id=<?php echo $subject['id']; ?>">
                                 <?php echo $subject['name']; ?>
                             </a></li>
                     <?php endforeach; ?>

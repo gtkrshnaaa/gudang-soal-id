@@ -104,7 +104,7 @@ $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <nav class="navbar navbar-expand-lg">
         <div class="container d-flex justify-content-between">
             <h3>Gudang Soal ID</h3>
-            <a class="nav-link" href="index.php">Home</a>
+            <a class="nav-link" href="../index.php">Home</a>
         </div>
     </nav>
 
