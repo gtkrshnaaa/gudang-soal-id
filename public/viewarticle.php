@@ -1,4 +1,8 @@
 <?php
+
+// Mulai session
+session_start();
+
 require_once '../includes/dbconnect.php';
 
 // Ambil artikel berdasarkan slug
@@ -26,6 +30,31 @@ $stmt->execute();
 $stmt = $conn->prepare("SELECT * FROM subjects");
 $stmt->execute();
 $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+// logic iklan
+// Ambil session ID pengguna dari parameter URL
+$session_id = $_GET['session_id'];
+
+// Cek apakah session ID pengguna sama dengan session ID saat diredirect dari halaman perantara
+$redirected_from_perantara = isset($_SESSION[$session_id]) ? $_SESSION[$session_id] : null;
+$current_session_id = session_id();
+
+// Jika session ID pengguna tidak sama dengan session ID saat diredirect dari halaman perantara, arahkan ke link iklan
+if ($redirected_from_perantara === null ) {
+    // Tautan iklan yang sudah dipendekkan dari halaman perantara
+    $iklanURL = "https://sfl.gl/LErGVgZB";
+
+    // Redirect pengguna ke tautan iklan
+    header("Location: $iklanURL");
+    exit();
+}
+
+
+
+// Bersihkan session yang menandakan pengguna diredirect dari halaman perantara
+unset($_SESSION[$session_id]);
+
 ?>
 
 <!DOCTYPE html>
